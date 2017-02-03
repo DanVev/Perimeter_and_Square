@@ -1,13 +1,14 @@
 .button{
     display: inline-block;
-    height:20px;
-    width:70px;
+    /*width:70px;
+    height: 30px;*/
     background-color: #cccccd;
     font-weight:bold;
+    font-size: 18px;
     color: #272727;
     border-radius: 5px;
     text-align:center;
-    margin-top:2px;
+    padding: 4px;
     cursor:pointer;
 }
 table {
