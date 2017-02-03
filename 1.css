@@ -10,6 +10,7 @@
     text-align:center;
     padding: 4px;
     cursor:pointer;
+    margin: 2px;
 }
 table {
     background-color: #f0f0f1;
@@ -19,8 +20,9 @@ td {
     border-style:solid;
     border-color:#272727;
     border-width: 3px;
-    font-size:12pt;
+    font-size:15pt;
     padding: 5px 25px;
+    text-align: center;
 }
 tr.head td{
     font-weight:bold;

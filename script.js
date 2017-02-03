@@ -3,38 +3,49 @@
  */
 $(document).ready(function () {
     $("input[name = 'insert']").click(function () {
-        var a = $('#a').val();
-        var b=  $('#b').val();
-        var c = $('#c').val();
-        $('table').append("<tr>"+"<td></td>"+"</tr>")
+        var a = parseFloat($('#a').val());
+        var b = parseFloat($('#b').val());
+        var c = parseFloat($('#c').val());
+        if ((((a + b) > c) && ((b + c) > a) && ((c + a) > b) && (a > 0) && (b > 0) && (c > 0))) {
+            var p = '<div class="button perimeter" ">Perimeter</div>';
+            var s = '<div class="button square" >Square</div>';
+            $('table').append("<tr>" +
+                "<td class = 'check'>" + "<input type='checkbox' />" + "</td>" +
+                "<td class = 'a'>" + a + "</td>" +
+                "<td class = 'b'>" + b + "</td>" +
+                "<td class = 'c'>" + c + "</td>" +
+                "<td>" + p + s + "</td>" +
+                "<td class = 'p'></td>" +
+                "<td class = 's'></td>" + +"</tr>");
+            $(document).on("click", ".perimeter", function () {
+                //$(this).fadeOut();
+                var row = $(this).closest("tr")[0].childNodes;
+                var p = parseFloat(row[1].innerHTML) + parseFloat(row[2].innerHTML) + parseFloat(row[3].innerHTML);
+                row[5].innerHTML = p;
+
+            });
+            $(document).on("click", ".square", function () {
+                var row = $(this).closest("tr")[0].childNodes;
+                var p = (parseFloat(row[1].innerHTML) + parseFloat(row[2].innerHTML) + parseFloat(row[3].innerHTML)) / 2;
+                row[6].innerHTML = Math.sqrt(p * (p - parseFloat(row[1].innerHTML)) * (p - parseFloat(row[2].innerHTML)) * (p - parseFloat(row[3].innerHTML)));
+            });
+            $(document).on("click", '#del', function () {
+                $('.check').each(function () {
+                    var $row = $(this)[0];
+                    console.log($row);
+                    if ($row.firstChild.checked) $(this).closest("tr").remove();
+                });
+            });
+        }
+        else
+            alert("Incorrect data! Try again");
     });
+    /*    $('#del').click(function () {
+     $('tr').each(function (i, e) {
+     console.log($(e).childNodes);
+     if ($(e).firstChild.checked) $(this).remove();
+     });
+     });*/
 });
 
-/*
 
- function check() {
- document.getElementById("per").innerText = "";
- document.getElementById("sq").innerText = "";
- var a = parseFloat(document.input_data.a.value);
- var b = parseFloat(document.input_data.b.value);
- var c = parseFloat(document.input_data.c.value);
- if ((((a + b) > c) && ((b + c) > a) && ((c + a) > b) && (a > 0) && (b > 0) && (c > 0)))
-
- else {
- alert("Incorrect data! Try again");
- reset()
- }
- }
- function reset() {
- document.getElementById("per").innerText = "";
- document.getElementById("sq").innerText = "";
- document.input_data.a.value = "";
- document.input_data.b.value = "";
- document.input_data.c.value = "";
- }
- function calculate(a, b, c) {
- var p = (a + b + c) / 2;
- var square = Math.sqrt(p * (p - a) * (p - b) * (p - c));
-
- }
- */
