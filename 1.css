@@ -1,0 +1,27 @@
+.button{
+    display: inline-block;
+    height:20px;
+    width:70px;
+    background-color: #cccccd;
+    font-weight:bold;
+    color: #272727;
+    border-radius: 5px;
+    text-align:center;
+    margin-top:2px;
+    cursor:pointer;
+}
+table {
+    background-color: #f0f0f1;
+    border-collapse: collapse;
+}
+td {
+    border-style:solid;
+    border-color:#272727;
+    border-width: 3px;
+    font-size:12pt;
+    padding: 5px 25px;
+}
+tr.head td{
+    font-weight:bold;
+    font-size:17pt;
+}
